@@ -10,12 +10,16 @@ const {
   exerciseDone,
   dayDone,
   getWorkoutsHistory,
+  verifyEmail,
+  resendVerificationEmail,
 } = require("../controllers/userController");
 const { requiresAuth } = require("../middleware/authMiddleware");
 const router = express.Router();
 
 router.post("/register_user", registerUser);
 router.post("/signin_admin", signInAdmin);
+router.get("/verify-email", verifyEmail);
+router.post("/resend-verification", resendVerificationEmail);
 
 router.get("/admin/:id", requiresAuth, getUser);
 router.get("/admin", requiresAuth, getUsers);

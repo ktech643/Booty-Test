@@ -135,7 +135,17 @@ const userSchema = mongoose.Schema(
         }
       }
     ],
-    deviceTokens: [String]
+    deviceTokens: [String],
+    isEmailVerified: {
+      type: Boolean,
+      default: false,
+    },
+    emailVerificationToken: {
+      type: String,
+    },
+    emailVerificationTokenExpiry: {
+      type: Date,
+    }
   },
   {
     timestamps: true,
